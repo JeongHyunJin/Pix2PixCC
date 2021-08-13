@@ -12,11 +12,18 @@ While the model is training, both networks compete with each other and get an up
 Loss functions are objectives that score the quality of results by the model, and the networks automatically learn that they are appropriate for satisfying a goal, i.e., the generation of realistic data. 
 They are iterated until the assigned iteration, which is a sufficient number assuring the convergence of the model.
 
+<br/>
+
 --------------
+
+<br/>
+
 
 ## Environments
 
 This code has been tested on Ubuntu 18.04 with one or two Nvidia GeForce GTX Titan XP GPU, CUDA Version 11.0, Python 3.6.9, and PyTorch 1.3.1.
+
+<br/>
 
 
 ## Environments
@@ -25,4 +32,8 @@ This code has been tested on Ubuntu 18.04 with one or two Nvidia GeForce GTX Tit
 * Python 3
 * NVIDIA GPU + CUDA cuDNN
 
-* Flags: see pix2pixCC_Options.py for all the training and test flags.
+<br/>
+
+* Flags: see *pix2pixCC_Options.py* for all the training and test flags.
+> Before running the model, you have to check or adjust the options for your input and target datasets.
+
