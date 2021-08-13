@@ -140,32 +140,32 @@ You can train the model with manually modified options as below:
 * When you set an iteration in TestOption class of *pix2pixHD_Options.py*, it saves the generated data by a model which saved before.
 * BaseOptions in *pix2pixCC_Options.py* when you train the model and when you test the model should be same.
 
-    Ex 1)
-   
-    python3 pix2pixCC_Test.py \
-    --dataset_name 'EUV2Mag' \
-    --data_format_input 'fits' \
-    --data_format_target 'fits' \
-    --data_size 1024 \
-    --input_ch 3 \
-    --logscale_input True \
-    --saturation_lower_limit_input 1 \
-    --saturation_upper_limit_input 200 \
-    --saturation_lower_limit_target -3000 \
-    --saturation_upper_limit_target 3000 \
-    --input_dir_test '../Datasets/Test_data/Test_input' \
-    --iteration 100000
+          Ex 1)
+
+          python3 pix2pixCC_Test.py \
+          --dataset_name 'EUV2Mag' \
+          --data_format_input 'fits' \
+          --data_format_target 'fits' \
+          --data_size 1024 \
+          --input_ch 3 \
+          --logscale_input True \
+          --saturation_lower_limit_input 1 \
+          --saturation_upper_limit_input 200 \
+          --saturation_lower_limit_target -3000 \
+          --saturation_upper_limit_target 3000 \
+          --input_dir_test '../Datasets/Test_data/Test_input' \
+          --iteration 100000
     
 <br/>
 
-    Ex 2)
-   
-    python3 pix2pixCC_Test.py \
-    --dataset_name 'Map2Sim' \
-    --data_size 256 \
-    --input_dir_test 'D:/Test_input' \
-    --norm_type 'BatchNorm2d' \
-    --batch_size 64 \
-    --save_freq 100 \
-    --n_epochs 100
+         Ex 2)
+
+         python3 pix2pixCC_Test.py \
+         --dataset_name 'Map2Sim' \
+         --data_size 256 \
+         --input_dir_test 'D:/Test_input' \
+         --norm_type 'BatchNorm2d' \
+         --batch_size 64 \
+         --save_freq 100 \
+         --n_epochs 100
 <br/>
