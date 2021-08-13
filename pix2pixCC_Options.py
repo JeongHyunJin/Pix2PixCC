@@ -22,8 +22,8 @@ class BaseOption(object):
         # data setting
         
         self.parser.add_argument('--dataset_name', type=str, default='pix2pixCC', help='dataset directory name')
-        self.parser.add_argument('--data_format_input', type=str, default='tif', help="Input data extension. [tif or npy or fits]")
-        self.parser.add_argument('--data_format_target', type=str, default='tif', help="Target data extension. [fits or npy or fits]")
+        self.parser.add_argument('--data_format_input', type=str, default='tif', help="Input data extension. [tif, tiff, npy, fits, fts, fit]")
+        self.parser.add_argument('--data_format_target', type=str, default='tif', help="Target data extension. [tif, tiff, npy, fits, fts, fit]")
         
         self.parser.add_argument('--input_ch', type=int, default=1, help="The number of channels of input data")
         self.parser.add_argument('--target_ch', type=int, default=1, help="The number of channels of target data")
@@ -55,7 +55,7 @@ class BaseOption(object):
         self.parser.add_argument('--n_gf', type=int, default=64, help='The number of channels in the first convolutional layer of the Generator')
         self.parser.add_argument('--n_df', type=int, default=64, help='The number of channels in the first convolutional layer of the Discriminator')
 
-        self.parser.add_argument('--data_type', type=int, default=32, help='float dtype')
+        self.parser.add_argument('--data_type', type=int, default=32, help='float dtype [16, 32]')
         self.parser.add_argument('--n_workers', type=int, default=1, help='how many threads you want to use')
         
         self.parser.add_argument('--norm_type', type=str, default='InstanceNorm2d', help='[BatchNorm2d, InstanceNorm2d]')
