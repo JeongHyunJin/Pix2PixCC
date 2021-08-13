@@ -1,5 +1,5 @@
 """
-Train code for the pix2pixCC Model
+Train code for the pix2pixCC model
 
 """
 
