@@ -1,5 +1,5 @@
 """
-Networks of the pix2pixCC Model
+Networks of the pix2pixCC model
 
 """
 
