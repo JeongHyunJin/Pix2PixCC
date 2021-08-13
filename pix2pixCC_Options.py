@@ -26,6 +26,8 @@ class BaseOption(object):
                                  help="Target data extension. [fits or npy or fits]")
         
         #----------------------------------------------------------------------
+        # data setting
+        
         self.parser.add_argument('--dataset_name', type=str, default='pix2pixCC', 
                                  help='dataset directory name')
         
@@ -66,16 +68,13 @@ class BaseOption(object):
 
 
         #----------------------------------------------------------------------
-
-        # data augmentation
+        # network setting
+        
         self.parser.add_argument('--batch_size', type=int, default=1, 
                                  help='the number of batch_size')
         
         self.parser.add_argument('--data_type', type=int, default=32, 
                                  help='float dtype')
-        
-        self.parser.add_argument('--image_mode', type=str, default='png', 
-                                 help='extension for saving image')
         
         self.parser.add_argument('--trans_conv', type=bool, default=True, 
                                  help='using transposed convolutions in Generator')
@@ -89,11 +88,12 @@ class BaseOption(object):
         self.parser.add_argument('--n_D', type=int, default=1, 
                                  help='how many discriminators in differet scales you want to use')
         
-        
+        self.parser.add_argument('--n_CC', type=int, default=2,
+                                 help='how many downsample output data to compute CC loss')
+            
         self.parser.add_argument('--n_gf', type=int, default=64)
         self.parser.add_argument('--n_df', type=int, default=64)
-        self.parser.add_argument('--n_CC', type=int, default=4,
-                                 help='how many downsample output data to compute CC loss')
+
         
         self.parser.add_argument('--n_workers', type=int, default=1, 
                                  help='how many threads you want to use')
@@ -104,20 +104,28 @@ class BaseOption(object):
         self.parser.add_argument('--padding_type', type=str, default='replication',
                                  help='[reflection, replication, zero]')
         
+        #----------------------------------------------------------------------
+        # data augmentation
+        
         self.parser.add_argument('--padding_size', type=int, default=0, 
                                  help='padding size for random crop')
         
         self.parser.add_argument('--max_rotation_angle', type=int, default=0, 
                                  help='rotation angle in degrees')
         
-        self.parser.add_argument('--val_during_train', action='store_true', default=False)
-        
+        #----------------------------------------------------------------------
+        # checking option
         
         self.parser.add_argument('--report_freq', type=int, default=100)
         self.parser.add_argument('--save_freq', type=int, default=10000)
         self.parser.add_argument('--display_freq', type=int, default=100)
         self.parser.add_argument('--save_scale', type=float, default=1)
         self.parser.add_argument('--display_scale', type=float, default=1)
+        self.parser.add_argument('--image_mode', type=str, default='png', 
+                                 help='extension for saving image')
+        self.parser.add_argument('--val_during_train', action='store_true', default=False)
+
+        
 
         
     def parse(self):
