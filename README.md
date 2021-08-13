@@ -239,7 +239,7 @@ When the GPU memory is not enough, you can try reducing the number of channels i
 * The loss configuration of the objective functions 
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total loss = *lambda_LSGAN* * (LSGAN loss) + *lambda_FM* * (Feature Matching loss) + *lambda_CC* * (1 - CC value)   <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total loss = *lambda_LSGAN* * (LSGAN loss) + *lambda_FM* * (Feature Matching loss) + *lambda_CC* * (CC loss)   <br/>
 
       # hyperparameters in TrainOption class
       --lambda_LSGAN: 2.0 (default)
