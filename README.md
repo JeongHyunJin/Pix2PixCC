@@ -104,7 +104,7 @@ You can train the model with manually modified options as below:
 
     Ex 1)
    
-    python3 pix2pixCC_Train.py \
+    python pix2pixCC_Train.py \
     --dataset_name 'EUV2Mag' \
     --data_format_input 'fits' \
     --data_format_target 'fits' \
@@ -123,7 +123,7 @@ You can train the model with manually modified options as below:
    
    Ex 2)
    
-    python3 pix2pixCC_Train.py \
+    python pix2pixCC_Train.py \
     --dataset_name 'Map2Sim' \
     --data_size 256 \
     --input_dir_train 'D:/Train_input' \
@@ -142,7 +142,7 @@ You can train the model with manually modified options as below:
 
           Ex 1)
 
-          python3 pix2pixCC_Test.py \
+          python pix2pixCC_Test.py \
           --dataset_name 'EUV2Mag' \
           --data_format_input 'fits' \
           --data_format_target 'fits' \
@@ -160,7 +160,7 @@ You can train the model with manually modified options as below:
 
          Ex 2)
 
-         python3 pix2pixCC_Test.py \
+         python pix2pixCC_Test.py \
          --dataset_name 'Map2Sim' \
          --data_size 256 \
          --input_dir_test 'D:/Test_input' \
