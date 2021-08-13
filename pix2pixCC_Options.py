@@ -136,9 +136,7 @@ class TrainOption(BaseOption):
         # hyperparameters 
         
         self.parser.add_argument('--lambda_LSGAN', type=float, default=2.0, help='weight for LSGAN loss')
-        
         self.parser.add_argument('--lambda_FM', type=float, default=10.0, help='weight for Feature Matching loss')
-        
         self.parser.add_argument('--lambda_CC', type=float, default=5.0, help='weight for CC loss')
         
         self.parser.add_argument('--ch_balance', type=bool, default=True, help='Set channel balance of input and target data')
@@ -165,7 +163,6 @@ class TestOption(BaseOption):
         #----------------------------------------------------------------------
         
         self.parser.add_argument('--is_train', type=bool, default=False, help='test flag')
-        
         self.parser.add_argument('--iteration', type=int, default=-1, help='if you want to generate from input for the specific iteration')
         
         self.parser.add_argument('--no_shuffle', type=bool, default=True, help='if you want to shuffle the order')
