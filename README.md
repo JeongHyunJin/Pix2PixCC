@@ -202,19 +202,27 @@ You can run this code by changing the hyperparameters of *pix2pixCC*.
       # network option in BaseOption class
      --n_downsample: 4 (default)
      --n_residual: 9 (default)
+     --trans_conv: True (default)
 
 <br/>
 
 **Discriminator** 
 
      # network option in BaseOption class
-     --n_D: 2 (default)
+     --n_D: 1 (default)
      
+
+**Inspector** 
+
+     # network option in BaseOption class
+     --n_CC: 2 (default)
      
+<br/>
+
 When the GPU memory is not enough, you can try reducing the number of channels in the first layer of networks. (e.g. --n_gf 32 --n_df 32)
    
-The number of channels in the first layer of generator: n_gf <br/>
-The number of channels in the first layer of discriminator: n_df <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The number of channels in the first layer of the Generator: n_gf <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The number of channels in the first layer of the Discriminator: n_df <br/>
 
      # network option in BaseOption class
      --n_gf: 64 (default)
