@@ -179,6 +179,7 @@ Ex 2)
        ./chechpoints/{dataset_name}/Image/Train/{iteration_fake.png}
        ./chechpoints/{dataset_name}/Model/{iteration_G.pt}
        ./chechpoints/{dataset_name}/Model/{iteration_D.pt}
+>
 
     # pix2pixCC_Test.py:
        ./chechpoints/{dataset_name}/Image/Test/{iteration}/{input_filename_AI.extension}
