@@ -78,6 +78,7 @@ class Manager(object):
               format(package['Epoch'], package['current_step']/package['total_step'] * 100, package['current_step'],
                      package['D_loss'], package['G_loss'], prec=4))
 
+    
     #--------------------------------------------------------------------------
     def adjust_dynamic_range(self, data, drange_in, drange_out):
         if drange_in != drange_out:
@@ -92,6 +93,7 @@ class Manager(object):
             data = data * scale + bias
         return data
 
+    
     #--------------------------------------------------------------------------
     def tensor2image(self, image_tensor):
         np_image = image_tensor[0].squeeze().cpu().float().numpy()
@@ -104,10 +106,12 @@ class Manager(object):
         np_image = np.clip(np_image, 0, 255).astype(np.uint8)
         return np_image
     
+    
     #--------------------------------------------------------------------------
     def save_image(self, image_tensor, path):
         Image.fromarray(self.tensor2image(image_tensor)).save(path, self.opt.image_mode)
 
+    
     #--------------------------------------------------------------------------        
     def save(self, package, image=False, model=False):
         if image:
@@ -122,6 +126,7 @@ class Manager(object):
             torch.save(package['D_state_dict'], path_D)
             torch.save(package['G_state_dict'], path_G)
 
+    
     #--------------------------------------------------------------------------
     def __call__(self, package):
         if package['current_step'] % self.opt.display_freq == 0:
@@ -133,6 +138,7 @@ class Manager(object):
         if package['current_step'] % self.opt.save_freq == 0:
             self.save(package, model=True)
 
+    
     #--------------------------------------------------------------------------
     
     
@@ -147,5 +153,7 @@ def weights_init(module):
     elif isinstance(module, nn.BatchNorm2d):
         module.weight.detach().normal_(1.0, 0.02)
         module.bias.detach().fill_(0.0)
+        
+        
         
 #==============================================================================
