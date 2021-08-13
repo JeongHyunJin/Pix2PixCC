@@ -221,7 +221,8 @@ You can run this code by changing the hyperparameters of *pix2pixCC*.
      
 <br/>
 
-When the GPU memory is not enough, you can try reducing the number of channels in the first convolutional layer of networks. (e.g. --n_gf 32 --n_df 32)
+When the GPU memory is not enough, you can try reducing the number of channels in the first convolutional layer of networks. <br/>
+(e.g. --n_gf 32 --n_df 32)
    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The number of channels in the first convolutional layer of the Generator: n_gf <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The number of channels in the first convolutional layer of the Discriminator: n_df <br/>
