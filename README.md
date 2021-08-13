@@ -102,7 +102,7 @@ Getting Started
 
 You can train the model with manually modified options as below:
 
-    Ex 1)
+Ex 1)
    
     python pix2pixCC_Train.py \
     --dataset_name 'EUV2Mag' \
@@ -121,7 +121,7 @@ You can train the model with manually modified options as below:
     
 <br/>
    
-   Ex 2)
+Ex 2)
    
     python pix2pixCC_Train.py \
     --dataset_name 'Map2Sim' \
@@ -140,7 +140,7 @@ You can train the model with manually modified options as below:
 * When you set an iteration in TestOption class of *pix2pixHD_Options.py*, it saves the generated data by a model which saved before.
 * BaseOptions in *pix2pixCC_Options.py* when you train the model and when you test the model should be same.
 
-          Ex 1)
+Ex 1)
 
           python pix2pixCC_Test.py \
           --dataset_name 'EUV2Mag' \
@@ -158,7 +158,7 @@ You can train the model with manually modified options as below:
     
 <br/>
 
-         Ex 2)
+Ex 2)
 
          python pix2pixCC_Test.py \
          --dataset_name 'Map2Sim' \
