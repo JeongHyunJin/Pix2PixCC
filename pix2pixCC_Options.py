@@ -17,13 +17,14 @@ class BaseOption(object):
         self.parser = argparse.ArgumentParser()
 
         self.parser.add_argument('--gpu_ids', type=str, default="0", help='gpu number. If -1, use cpu')
-        self.parser.add_argument('--data_format_input', type=str, default='tif', help="Input data extension. [tif or npy or fits]")
-        self.parser.add_argument('--data_format_target', type=str, default='tif', help="Target data extension. [fits or npy or fits]")
-        
+
         #----------------------------------------------------------------------
         # data setting
         
         self.parser.add_argument('--dataset_name', type=str, default='pix2pixCC', help='dataset directory name')
+        self.parser.add_argument('--data_format_input', type=str, default='tif', help="Input data extension. [tif or npy or fits]")
+        self.parser.add_argument('--data_format_target', type=str, default='tif', help="Target data extension. [fits or npy or fits]")
+        
         self.parser.add_argument('--input_ch', type=int, default=1, help="# of input channels for Generater")
         self.parser.add_argument('--target_ch', type=int, default=1, help="# of target channels for Generater")
         
