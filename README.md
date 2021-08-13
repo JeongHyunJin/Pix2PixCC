@@ -37,7 +37,7 @@ This code has been tested on Ubuntu 18.04 with one or two Nvidia GeForce GTX Tit
 * Flags: see *pix2pixCC_Options.py* for all the training and test flags.
 > Before running the model, you have to check or adjust the options for your input and target datasets.
 
-     # data option in BaseOption class
+     # data setting in BaseOption class
      --dataset_name: 'pix2pixCC' (default)
      --data_format_input: 'tif' (default)
      --data_format_target: 'tif' (default)
@@ -199,7 +199,7 @@ You can run this code by changing the hyperparameters of *pix2pixCC*.
 
 **Generator** 
 
-      # network option in BaseOption class
+      # network setting in BaseOption class
      --n_downsample: 4 (default)
      --n_residual: 9 (default)
      --trans_conv: True (default)
@@ -208,13 +208,13 @@ You can run this code by changing the hyperparameters of *pix2pixCC*.
 
 **Discriminator** 
 
-     # network option in BaseOption class
+     # network setting in BaseOption class
      --n_D: 1 (default)
      
 
 **Inspector** 
 
-     # network option in BaseOption class
+     # network setting in BaseOption class
      --n_CC: 2 (default)
      
 <br/>
@@ -234,6 +234,14 @@ When the GPU memory is not enough, you can try reducing the number of channels i
 **Hyperparameters** 
 
 * The loss configuration of the objective functions 
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total loss = (lambda_LSGAN) * (LSGAN loss) + (lambda_FM) * (Feature Matching loss) + (lambda_CC) * (1 - CC value)   <br/>
+
+      # hyperparameters in TrainOption class
+      --lambda_LSGAN: 2.0 (default)
+      --lambda_FM: 10.0 (default)
+      --lambda_CC: 5.0 (default)
 
 <br/>
 
