@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Options for the pix2pixCC Model
+Options for the pix2pixCC model
 
 """
 
