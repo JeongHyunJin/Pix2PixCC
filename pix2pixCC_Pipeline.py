@@ -1,5 +1,5 @@
 """
-Pipeline of the pix2pixCC Model
+Pipeline of the pix2pixCC model
 """
 
 #==============================================================================
