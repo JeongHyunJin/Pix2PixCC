@@ -55,7 +55,7 @@ class BaseOption(object):
         self.parser.add_argument('--n_gf', type=int, default=64)
         self.parser.add_argument('--n_df', type=int, default=64)
 
-        self.parser.add_argument('--data_type', type=int, default=32,  help='float dtype')
+        self.parser.add_argument('--data_type', type=int, default=32, help='float dtype')
         self.parser.add_argument('--n_workers', type=int, default=1, help='how many threads you want to use')
         
         self.parser.add_argument('--norm_type', type=str, default='InstanceNorm2d', help='[BatchNorm2d, InstanceNorm2d]')
@@ -75,8 +75,7 @@ class BaseOption(object):
         self.parser.add_argument('--display_freq', type=int, default=100)
         self.parser.add_argument('--save_scale', type=float, default=1)
         self.parser.add_argument('--display_scale', type=float, default=1)
-        self.parser.add_argument('--image_mode', type=str, default='png', 
-                                 help='extension for saving image')
+        self.parser.add_argument('--image_mode', type=str, default='png', help='extension for saving image')
         self.parser.add_argument('--val_during_train', action='store_true', default=False)
 
         #----------------------------------------------------------------------
@@ -128,9 +127,7 @@ class TrainOption(BaseOption):
         
         self.parser.add_argument('--is_train', type=bool, default=True, help='train flag')
         self.parser.add_argument('--n_epochs', type=int, default=150, help='how many epochs you want to train')
-        
         self.parser.add_argument('--latest_iter', type=int, default=0, help='Resume iteration')
-        
         self.parser.add_argument('--no_shuffle', action='store_true', default=False, help='if you want to shuffle the order')
         
         #----------------------------------------------------------------------
@@ -165,7 +162,6 @@ class TestOption(BaseOption):
         
         self.parser.add_argument('--is_train', type=bool, default=False, help='test flag')
         self.parser.add_argument('--iteration', type=int, default=-1, help='if you want to generate from input for the specific iteration')
-        
         self.parser.add_argument('--no_shuffle', type=bool, default=True, help='if you want to shuffle the order')
         
         #----------------------------------------------------------------------
