@@ -133,7 +133,9 @@ class Manager(object):
         if package['current_step'] % self.opt.save_freq == 0:
             self.save(package, model=True)
 
-
+    #--------------------------------------------------------------------------
+    
+    
 
 #==============================================================================
 # Set the initial conditions of weights
