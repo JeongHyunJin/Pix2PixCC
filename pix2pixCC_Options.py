@@ -25,8 +25,8 @@ class BaseOption(object):
         self.parser.add_argument('--data_format_input', type=str, default='tif', help="Input data extension. [tif or npy or fits]")
         self.parser.add_argument('--data_format_target', type=str, default='tif', help="Target data extension. [fits or npy or fits]")
         
-        self.parser.add_argument('--input_ch', type=int, default=1, help="# of input channels for Generater")
-        self.parser.add_argument('--target_ch', type=int, default=1, help="# of target channels for Generater")
+        self.parser.add_argument('--input_ch', type=int, default=1, help="The number of channels of input data")
+        self.parser.add_argument('--target_ch', type=int, default=1, help="The number of channels of target data")
         
         self.parser.add_argument('--data_size', type=int, default=1024, help='image size of the input and target data')
         
@@ -49,11 +49,11 @@ class BaseOption(object):
         self.parser.add_argument('--n_residual', type=int, default=9, help='the number of residual blocks in Generator')
         self.parser.add_argument('--trans_conv', type=bool, default=True, help='using transposed convolutions in Generator')
 
-        self.parser.add_argument('--n_D', type=int, default=1, help='how many discriminators in differet scales you want to use')
-        self.parser.add_argument('--n_CC', type=int, default=2, help='how many downsample output data to compute CC loss')
+        self.parser.add_argument('--n_D', type=int, default=1, help='how many Discriminators in differet scales you want to use')
+        self.parser.add_argument('--n_CC', type=int, default=2, help='how many downsample output data to compute CC values')
             
-        self.parser.add_argument('--n_gf', type=int, default=64)
-        self.parser.add_argument('--n_df', type=int, default=64)
+        self.parser.add_argument('--n_gf', type=int, default=64, help='The number of channels in the first convolutional layer of the Generator')
+        self.parser.add_argument('--n_df', type=int, default=64, help='The number of channels in the first convolutional layer of the Discriminator')
 
         self.parser.add_argument('--data_type', type=int, default=32, help='float dtype')
         self.parser.add_argument('--n_workers', type=int, default=1, help='how many threads you want to use')
