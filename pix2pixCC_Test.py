@@ -1,5 +1,5 @@
 """
-Test code for the pix2pixCC Model
+Test code for the pix2pixCC model
 
 """
 
