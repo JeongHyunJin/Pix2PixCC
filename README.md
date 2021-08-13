@@ -60,8 +60,7 @@ This code has been tested on Ubuntu 18.04 with one or two Nvidia GeForce GTX Tit
       # directory path for training in TrainOption class
       --input_dir_train: './datasets/Train/Input' (default)
       --target_dir_train: './datasets/Train/Target' (default)
-      
->    &
+> 
 
       # directory path for test in TestOption class
       --input_dir_test: './datasets/Test/Input' (default)
