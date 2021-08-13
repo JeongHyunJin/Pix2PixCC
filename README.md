@@ -217,7 +217,7 @@ You can run this code by changing the hyperparameters of *pix2pixCC*.
 **Inspector** 
 
      # network setting in BaseOption class
-     --n_CC: 2 (default)
+     --n_CC: 4 (default)
      
 <br/>
 
