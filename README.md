@@ -267,3 +267,13 @@ When the GPU memory is not enough, you can try reducing the number of channels i
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Initialize weights in convolutional layers : normal distribution, mean : 0.0, standard deviation : 0.02   
 
 <br/>
+
+------------
+
+## Citation
+
+If you use this code in your work, please consider citing our paper.
+
+* Jeong et al. (2021)
+
+      TBD
