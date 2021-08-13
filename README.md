@@ -169,3 +169,30 @@ Ex 2)
          --save_freq 100 \
          --n_epochs 100
 <br/>
+
+
+**Outputs**   
+   It will make directories and save outputs as below:
+    
+    # pix2pixCC_Train.py:
+       ./chechpoints/{dataset_name}/Image/Train/{iteration_real.png}
+       ./chechpoints/{dataset_name}/Image/Train/{iteration_fake.png}
+       ./chechpoints/{dataset_name}/Model/{iteration_G.pt}
+       ./chechpoints/{dataset_name}/Model/{iteration_D.pt}
+
+    # pix2pixCC_Test.py:
+       ./chechpoints/{dataset_name}/Image/Test/{iteration}/{input_filename_AI.extension}
+
+<br/>
+
+-------------------------
+
+<br/>
+
+
+Network architectures and Hyperparameters
+------------
+
+You can run this code by changing the hyperparameters of *pix2pixCC*.
+
+<br/>
