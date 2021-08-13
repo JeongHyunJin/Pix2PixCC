@@ -1,4 +1,4 @@
-# *pix2pixCC* model
+# *pix2pixCC*
 
 The *pix2pixCC* is an improved deep learning model to use scientific datasets than previous models (*pix2pix* and *pix2pixHD*).
 It uses update loss functions: those of *pix2pixHD* model and correlation coefficient (CC) values between the real and generated data.
