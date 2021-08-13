@@ -50,7 +50,7 @@ class BaseOption(object):
         self.parser.add_argument('--trans_conv', type=bool, default=True, help='using transposed convolutions in Generator')
 
         self.parser.add_argument('--n_D', type=int, default=1, help='how many Discriminators in differet scales you want to use')
-        self.parser.add_argument('--n_CC', type=int, default=2, help='how many downsample output data to compute CC values')
+        self.parser.add_argument('--n_CC', type=int, default=4, help='how many downsample output data to compute CC values')
             
         self.parser.add_argument('--n_gf', type=int, default=64, help='The number of channels in the first convolutional layer of the Generator')
         self.parser.add_argument('--n_df', type=int, default=64, help='The number of channels in the first convolutional layer of the Discriminator')
