@@ -196,3 +196,56 @@ Network architectures and Hyperparameters
 You can run this code by changing the hyperparameters of *pix2pixCC*.
 
 <br/>
+
+**Generator** 
+
+      # network option in BaseOption class
+     --n_downsample: 4 (default)
+     --n_residual: 9 (default)
+
+<br/>
+
+**Discriminator** 
+
+     # network option in BaseOption class
+     --n_D: 2 (default)
+     
+     
+When the GPU memory is not enough, you can try reducing the number of channels in the first layer of networks. (e.g. --n_gf 32 --n_df 32)
+   
+The number of channels in the first layer of generator: n_gf <br/>
+The number of channels in the first layer of discriminator: n_df <br/>
+
+     # network option in BaseOption class
+     --n_gf: 64 (default)
+     --n_df: 64 (default)
+     
+<br/>
+<br/>
+
+**Hyperparameters** 
+
+* The loss configuration of the objective functions 
+
+<br/>
+
+* Optimizer    
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimizer : Adam solver <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; momentum beta 1 parameter : beta1 <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; momentum beta 2 parameter : beta2 <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Learning rate : lr <br/>
+
+
+      # hyperparameters in TrainOption class
+      --beta1: 0.5 (default)
+      --beta2: 0.999 (default)
+      --lr: 0.0002 (default)
+
+<br/>
+
+* Initializer
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Initialize Weights in Convolutional Layers : normal distribution, mean : 0.0, standard deviation : 0.02   
+
+<br/>
