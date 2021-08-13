@@ -71,12 +71,14 @@ class Manager(object):
         self.opt = opt
         self.dtype = opt.data_type
 
+    #--------------------------------------------------------------------------      
     @staticmethod
     def report_loss(package):
         print("Epoch: {} [{:.{prec}}%] Current_step: {} D_loss: {:.{prec}}  G_loss: {:.{prec}}".
               format(package['Epoch'], package['current_step']/package['total_step'] * 100, package['current_step'],
                      package['D_loss'], package['G_loss'], prec=4))
 
+    #--------------------------------------------------------------------------
     def adjust_dynamic_range(self, data, drange_in, drange_out):
         if drange_in != drange_out:
             if self.dtype == 32:
@@ -90,6 +92,7 @@ class Manager(object):
             data = data * scale + bias
         return data
 
+    #--------------------------------------------------------------------------
     def tensor2image(self, image_tensor):
         np_image = image_tensor[0].squeeze().cpu().float().numpy()
         if len(np_image.shape) == 3:
@@ -100,10 +103,12 @@ class Manager(object):
         np_image = self.adjust_dynamic_range(np_image, drange_in=[-1., 1.], drange_out=[0, 255])
         np_image = np.clip(np_image, 0, 255).astype(np.uint8)
         return np_image
-
+    
+    #--------------------------------------------------------------------------
     def save_image(self, image_tensor, path):
         Image.fromarray(self.tensor2image(image_tensor)).save(path, self.opt.image_mode)
 
+    #--------------------------------------------------------------------------        
     def save(self, package, image=False, model=False):
         if image:
             path_real = os.path.join(self.opt.image_dir, str(package['current_step']) + '_' + 'real.png')
@@ -117,6 +122,7 @@ class Manager(object):
             torch.save(package['D_state_dict'], path_D)
             torch.save(package['G_state_dict'], path_G)
 
+    #--------------------------------------------------------------------------
     def __call__(self, package):
         if package['current_step'] % self.opt.display_freq == 0:
             self.save(package, image=True)
