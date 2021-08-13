@@ -1,5 +1,5 @@
 """
-Utility programs of the pix2pixCC Model
+Utility programs of the pix2pixCC model
 
 """
 
