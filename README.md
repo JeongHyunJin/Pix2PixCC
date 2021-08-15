@@ -38,9 +38,9 @@ This code has been tested on Ubuntu 18.04 with one or two Nvidia GeForce GTX Tit
 > Before running the model, you have to check or adjust the options for your input and target datasets.
 
      # data setting in BaseOption class
-     --dataset_name 'pix2pixCC' (default)
-     --data_format_input 'tif' (default)
-     --data_format_target 'tif' (default)
+     *--dataset_name* 'pix2pixCC' (default)
+     *--data_format_input* 'tif' (default)
+     *--data_format_target* 'tif' (default)
 
      --input_ch 1 (default)
      --target_ch 1 (default)
