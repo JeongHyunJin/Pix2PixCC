@@ -277,17 +277,16 @@ class Loss(object):
         fd = fake - torch.mean(fake)
         
         r_num = torch.sum(rd * fd)
-        r_den = torch.sqrt(torch.sum(rd ** 2)) * torch.sqrt(torch.sum(fd ** 2)) + self.opt.eps
-        PCC_val = r_num/r_den
+        r_den = torch.sqrt(torch.sum(rd ** 2)) * torch.sqrt(torch.sum(fd ** 2))
+        PCC_val = r_num/(r_den + self.opt.eps)
         
         #----------------------------------------------------------------------
         if self.opt.ccc == True:
             numerator = 2*PCC_val*torch.std(target)*torch.std(fake)
             denominator = (torch.var(target) + torch.var(fake)
-                           + (torch.mean(target) - torch.mean(fake))**2
-                           + self.opt.eps)
+                           + (torch.mean(target) - torch.mean(fake))**2)
             
-            CCC_val = numerator/denominator
+            CCC_val = numerator/(denominator + self.opt.eps)
             loss_CC = (1.0 - CCC_val)
         
         else:
