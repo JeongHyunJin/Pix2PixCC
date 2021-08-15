@@ -213,7 +213,7 @@ You can run this code by changing the hyperparameters of *pix2pixCC*.
      # network setting in BaseOption class
      --n_D: 1 (default)
      
-     # TrainOption
+     # train setting in TrainOption class
      --ch_balance True (default)
      
 
