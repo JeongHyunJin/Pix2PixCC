@@ -38,34 +38,34 @@ This code has been tested on Ubuntu 18.04 with one or two Nvidia GeForce GTX Tit
 > Before running the model, you have to check or adjust the options for your input and target datasets.
 
      # data setting in BaseOption class
-     --dataset_name: 'pix2pixCC' (default)
-     --data_format_input: 'tif' (default)
-     --data_format_target: 'tif' (default)
+     --dataset_name 'pix2pixCC' (default)
+     --data_format_input 'tif' (default)
+     --data_format_target 'tif' (default)
 
-     --input_ch: 1 (default)
-     --target_ch: 1 (default)
+     --input_ch 1 (default)
+     --target_ch 1 (default)
 
-     --data_size: 1024 (default)
+     --data_size 1024 (default)
 
-     --logscale_input: False (default)
-     --logscale_target: False (default)
+     --logscale_input False (default)
+     --logscale_target False (default)
 
-     --saturation_lower_limit_input: -1 (default)
-     --saturation_upper_limit_input: 1 (default)
-     --saturation_lower_limit_target: -1 (default)
-     --saturation_upper_limit_target: 1 (default)
-     --saturation_clip_input: False (default)
-     --saturation_clip_target: False (default)
+     --saturation_lower_limit_input -1 (default)
+     --saturation_upper_limit_input 1 (default)
+     --saturation_lower_limit_target -1 (default)
+     --saturation_upper_limit_target 1 (default)
+     --saturation_clip_input False (default)
+     --saturation_clip_target False (default)
       
 >    And you have to set the pathes of input and target directories.
 
       # directory path for training in TrainOption class
-      --input_dir_train: './datasets/Train/Input' (default)
-      --target_dir_train: './datasets/Train/Target' (default)
+      --input_dir_train './datasets/Train/Input' (default)
+      --target_dir_train './datasets/Train/Target' (default)
 > 
 
       # directory path for test in TestOption class
-      --input_dir_test: './datasets/Test/Input' (default)
+      --input_dir_test './datasets/Test/Input' (default)
       
       
       
@@ -132,7 +132,7 @@ Ex 2)
     --norm_type 'BatchNorm2d' \
     --batch_size 64 \
     --save_freq 100 \
-    --n_epochs 100
+    --n_epochs 200
     
 <br/>
 
@@ -166,9 +166,7 @@ Ex 2)
     --data_size 256 \
     --input_dir_test 'D:/Test_input' \
     --norm_type 'BatchNorm2d' \
-    --batch_size 64 \
-    --save_freq 100 \
-    --n_epochs 100
+
 <br/>
 
 
@@ -202,16 +200,16 @@ You can run this code by changing the hyperparameters of *pix2pixCC*.
 **Generator** 
 
       # network setting in BaseOption class
-     --n_downsample: 4 (default)
-     --n_residual: 9 (default)
-     --trans_conv: True (default)
+     --n_downsample 4 (default)
+     --n_residual 9 (default)
+     --trans_conv True (default)
 
 <br/>
 
 **Discriminator** 
 
      # network setting in BaseOption class
-     --n_D: 1 (default)
+     --n_D 1 (default)
      
      # train setting in TrainOption class
      --ch_balance True (default)
@@ -220,7 +218,7 @@ You can run this code by changing the hyperparameters of *pix2pixCC*.
 **Inspector** 
 
      # network setting in BaseOption class
-     --n_CC: 4 (default)
+     --n_CC 4 (default)
      
 <br/>
 
@@ -231,8 +229,8 @@ When the GPU memory is not enough, you can try reducing the number of channels i
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The number of channels in the first convolutional layer of the Discriminator: n_df <br/>
 
      # network option in BaseOption class
-     --n_gf: 64 (default)
-     --n_df: 64 (default)
+     --n_gf 64 (default)
+     --n_df 64 (default)
      
 <br/>
 <br/>
@@ -245,9 +243,9 @@ When the GPU memory is not enough, you can try reducing the number of channels i
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total loss = *lambda_LSGAN* * (LSGAN loss) + *lambda_FM* * (Feature Matching loss) + *lambda_CC* * (CC loss)   <br/>
 
       # hyperparameters in TrainOption class
-      --lambda_LSGAN: 2.0 (default)
-      --lambda_FM: 10.0 (default)
-      --lambda_CC: 5.0 (default)
+      --lambda_LSGAN 2.0 (default)
+      --lambda_FM 10.0 (default)
+      --lambda_CC 5.0 (default)
 
 <br/>
 
@@ -260,9 +258,9 @@ When the GPU memory is not enough, you can try reducing the number of channels i
 
 
       # hyperparameters in TrainOption class
-      --beta1: 0.5 (default)
-      --beta2: 0.999 (default)
-      --lr: 0.0002 (default)
+      --beta1 0.5 (default)
+      --beta2 0.999 (default)
+      --lr 0.0002 (default)
 
 <br/>
 
