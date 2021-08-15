@@ -124,6 +124,7 @@ class TrainOption(BaseOption):
         self.parser.add_argument('--target_dir_train', type=str, default='./datasets/Train/Target', help='directory path of the target files for the model training')
         
         #----------------------------------------------------------------------
+        # Train setting
         
         self.parser.add_argument('--is_train', type=bool, default=True, help='train flag')
         self.parser.add_argument('--n_epochs', type=int, default=150, help='how many epochs you want to train')
@@ -159,6 +160,7 @@ class TestOption(BaseOption):
         self.parser.add_argument('--input_dir_test', type=str, default='./datasets/Test/Input', help='directory path of the input files for the model test')
         
         #----------------------------------------------------------------------
+        # test setting
         
         self.parser.add_argument('--is_train', type=bool, default=False, help='test flag')
         self.parser.add_argument('--iteration', type=int, default=-1, help='if you want to generate from input for the specific iteration')
