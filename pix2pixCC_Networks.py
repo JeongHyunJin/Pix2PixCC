@@ -96,13 +96,16 @@ class PatchDiscriminator(nn.Module):
         #----------------------------------------------------------------------
         if opt.ch_balance == True:
             ch_ratio = np.float(opt.input_ch) / np.float(opt.target_ch)
-            if ch_ratio < 1:
-                input_channel = opt.input_ch*np.int(1/ch_ratio) + opt.target_ch
+            if ch_ratio > 1:
+                input_channel = opt.input_ch + opt.target_ch*np.int(ch_ratio+1)
+            elif ch_ratio <= 0.5:
+                input_channel = opt.input_ch*np.int(1/ch_ratio-1) + opt.target_ch
+            
             else:
-                input_channel = opt.input_ch + opt.target_ch*np.int(ch_ratio)
+                input_channel = opt.input_ch + opt.target_ch
         else:
             input_channel = opt.input_ch + opt.target_ch
-                
+        
         #----------------------------------------------------------------------
         act = nn.LeakyReLU(0.2, inplace=True)
         n_df = opt.n_df
@@ -190,13 +193,13 @@ class Loss(object):
             ch_plus = 0
             ch_ratio = np.float(self.opt.input_ch) / np.float(self.opt.target_ch)
             if ch_ratio > 1:
-                for dr in range(np.int(ch_ratio)-1):
+                for dr in range(np.int(ch_ratio)):
                     real_pair = torch.cat((real_pair, target), dim=1)
                     fake_pair = torch.cat((fake_pair, fake.detach()), dim=1)
                     ch_plus += self.opt.target_ch
                     
-            elif ch_ratio < 1:
-                for _ in range(np.int(1/ch_ratio)-1):
+            elif ch_ratio <= 0.5:
+                for _ in range(np.int(1/ch_ratio)-2):
                     real_pair = torch.cat((input, real_pair), dim=1)
                     fake_pair = torch.cat((input, fake_pair), dim=1)
                     ch_plus += self.opt.input_ch
@@ -228,10 +231,10 @@ class Loss(object):
             fake_pair = torch.cat((input, fake), dim=1)
             
             if ch_ratio > 1:
-                for _ in range(np.int(ch_ratio)-1):
+                for _ in range(np.int(ch_ratio)):
                     fake_pair = torch.cat((fake_pair, fake), dim=1)
-            elif ch_ratio < 1:
-                for _ in range(np.int(1/ch_ratio)-1):
+            elif ch_ratio <= 0.5:
+                for _ in range(np.int(1/ch_ratio)-2):
                     fake_pair = torch.cat((input, fake_pair), dim=1)
             else:
                 pass
