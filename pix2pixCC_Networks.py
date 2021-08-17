@@ -34,7 +34,7 @@ class Generator(nn.Module):
         model += [pad(3), nn.Conv2d(input_ch, n_gf, kernel_size=7, padding=0), norm(n_gf), act]
 
         for _ in range(opt.n_downsample):
-            model += [nn.Conv2d(n_gf, 2 * n_gf, kernel_size=3, padding=1, stride=2), norm(2 * n_gf), act]
+            model += [nn.Conv2d(n_gf, 2 * n_gf, kernel_size=5, padding=2, stride=2), norm(2 * n_gf), act]
             n_gf *= 2
 
         for _ in range(opt.n_residual):
