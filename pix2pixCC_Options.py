@@ -138,7 +138,7 @@ class TrainOption(BaseOption):
         self.parser.add_argument('--lambda_FM', type=float, default=10.0, help='weight for Feature Matching loss')
         self.parser.add_argument('--lambda_CC', type=float, default=5.0, help='weight for CC loss')
         
-        self.parser.add_argument('--ch_balance', type=bool, default=True, help='Set channel balance of input and target data')
+        self.parser.add_argument('--ch_balance', type=float, default=1, help='Set channel balance of input and target data')
         self.parser.add_argument('--ccc', type=bool, default=True, help='using Concordance Correlation Coefficient values (False -> using Pearson CC values)')
         
         self.parser.add_argument('--beta1', type=float, default=0.5)
