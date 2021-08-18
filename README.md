@@ -212,7 +212,7 @@ You can run this code by changing the hyperparameters of *pix2pixCC*.
      --n_D 1 (default)
      
      # train setting in TrainOption class
-     --ch_balance True (default)
+     --ch_balance 1 (default)
      
 
 **Inspector** 
