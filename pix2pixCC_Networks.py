@@ -94,13 +94,13 @@ class PatchDiscriminator(nn.Module):
         super(PatchDiscriminator, self).__init__()
         
         #----------------------------------------------------------------------
-        if opt.ch_balance == True:
-            ch_ratio = np.float(opt.input_ch) / np.float(opt.target_ch)
+        if opt.ch_balance > 0:
+            ch_ratio = np.float(opt.input_ch)/np.float(opt.target_ch)
+            ch_ratio *= self.opt.ch_balance
             if ch_ratio > 1:
-                input_channel = opt.input_ch + opt.target_ch*np.int(ch_ratio+1)
-            elif ch_ratio <= 0.5:
+                input_channel = opt.input_ch + opt.target_ch*np.int(ch_ratio-1)                            
+            elif ch_ratio < 1:
                 input_channel = opt.input_ch*np.int(1/ch_ratio-1) + opt.target_ch
-            
             else:
                 input_channel = opt.input_ch + opt.target_ch
         else:
@@ -185,24 +185,26 @@ class Loss(object):
         #----------------------------------------------------------------------
         # [3-1] Get Real and Fake (Generated) pairs and features 
         
-        if self.opt.ch_balance == True:        
+        if self.opt.ch_balance > 0:        
             
             real_pair = torch.cat((input, target), dim=1)
             fake_pair = torch.cat((input, fake.detach()), dim=1)
             
             ch_plus = 0
-            ch_ratio = np.float(self.opt.input_ch) / np.float(self.opt.target_ch)
+            ch_ratio = np.float(self.opt.input_ch)/np.float(self.opt.target_ch)
+            ch_ratio *= self.opt.ch_balance
             if ch_ratio > 1:
-                for dr in range(np.int(ch_ratio)):
+                for dr in range(np.int(ch_ratio)-1):
                     real_pair = torch.cat((real_pair, target), dim=1)
                     fake_pair = torch.cat((fake_pair, fake.detach()), dim=1)
-                    ch_plus += self.opt.target_ch
-                    
-            elif ch_ratio <= 0.5:
-                for _ in range(np.int(1/ch_ratio)-2):
+                    ch_plus += self.opt.target_ch                         
+            
+            elif ch_ratio < 1:                
+                for _ in range(np.int(1/ch_ratio)-1):
                     real_pair = torch.cat((input, real_pair), dim=1)
                     fake_pair = torch.cat((input, fake_pair), dim=1)
                     ch_plus += self.opt.input_ch
+                
             else:
                 pass
             
@@ -227,14 +229,14 @@ class Loss(object):
         #----------------------------------------------------------------------
         # [3-3] Compute LSGAN loss and Feature Matching loss for the generator
         
-        if self.opt.ch_balance == True:  
+        if self.opt.ch_balance > 0:  
             fake_pair = torch.cat((input, fake), dim=1)
             
             if ch_ratio > 1:
-                for _ in range(np.int(ch_ratio)):
+                for _ in range(np.int(ch_ratio)-1):
                     fake_pair = torch.cat((fake_pair, fake), dim=1)
-            elif ch_ratio <= 0.5:
-                for _ in range(np.int(1/ch_ratio)-2):
+            elif ch_ratio < 1:
+                for _ in range(np.int(1/ch_ratio)-1):
                     fake_pair = torch.cat((input, fake_pair), dim=1)
             else:
                 pass
@@ -242,6 +244,7 @@ class Loss(object):
             fake_features = D(fake_pair)
         else:
             fake_features = D(torch.cat((input, fake), dim=1))
+            
         
         for i in range(self.n_D):
             real_grid = get_grid(fake_features[i][-1], is_real=True).to(self.device, self.dtype)
