@@ -96,7 +96,7 @@ class PatchDiscriminator(nn.Module):
         #----------------------------------------------------------------------
         if opt.ch_balance > 0:
             ch_ratio = np.float(opt.input_ch)/np.float(opt.target_ch)
-            ch_ratio *= self.opt.ch_balance
+            ch_ratio *= opt.ch_balance
             if ch_ratio > 1:
                 input_channel = opt.input_ch + opt.target_ch*np.int(ch_ratio-1)                            
             elif ch_ratio < 1:
