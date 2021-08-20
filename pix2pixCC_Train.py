@@ -89,13 +89,13 @@ if __name__ == '__main__':
     #--------------------------------------------------------------------------
     # [2] Model training
     
-    total_step = opt.n_epochs * len(data_loader)
+    total_step = opt.n_epochs * len(data_loader) * batch_sz
 
     for epoch in range(init_epoch, opt.n_epochs + 1):
         for input, target, _, _ in tqdm(data_loader):
             G.train()
          
-            current_step += int(1*batch_sz)
+            current_step += batch_sz
             input, target = input.to(device=device, dtype=dtype), target.to(device, dtype=dtype)
             
             D_loss, G_loss, target_tensor, generated_tensor = criterion(D, G, input, target)
