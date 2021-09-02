@@ -190,9 +190,9 @@ class CustomDataset(Dataset):
     def __random_crop(self, x):
         x = np.array(x)
         if len(x.shape) == 3:
-            x = x[:, self.offset_x: self.offset_x + 1024, self.offset_y: self.offset_y + 1024]
+            x = x[:, self.offset_x: self.offset_x + self.opt.data_size, self.offset_y: self.offset_y + self.opt.data_size]
         else:
-            x = x[self.offset_x: self.offset_x + 1024, self.offset_y: self.offset_y + 1024]
+            x = x[self.offset_x: self.offset_x + self.opt.data_size, self.offset_y: self.offset_y + self.opt.data_size]
         return x
 
     @staticmethod
