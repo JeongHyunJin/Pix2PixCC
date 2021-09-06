@@ -105,7 +105,7 @@ if __name__ == '__main__':
         dir_image_save = './checkpoints/{}/Image/Test/{}'.format(str(STD), str(ITERATION))
         os.makedirs(dir_image_save, exist_ok=True)
     
-        G = Generator(opt).to(device)
+        G = torch.nn.DataParallel(Generator(opt)).to(device)
         G.module.load_state_dict(torch.load(path_model))
         
         manager = Manager(opt)
