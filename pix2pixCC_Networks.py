@@ -46,7 +46,7 @@ class Generator(nn.Module):
                 model += [nn.ConvTranspose2d(n_gf, n_gf//2, kernel_size=3, padding=1, stride=2, output_padding=1),
                           norm(n_gf//2), act]
             else:
-                model +=[nn.UpsamplingNearest2d(scale_factor=2)]
+                model += [nn.UpsamplingBilinear2d(scale_factor=2)]
                 model += [pad(1), nn.Conv2d(n_gf, n_gf//2, kernel_size=3, padding=0, stride=1), norm(n_gf//2), act]
             #------------------------------------------------------------------                        
             n_gf //= 2
