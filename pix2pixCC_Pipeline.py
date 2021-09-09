@@ -86,9 +86,10 @@ class CustomDataset(Dataset):
                 label_array = (IMG_A0-(UpIA+LoIA)/2)/((UpIA - LoIA)/2)
                 
             #--------------------------------------
+            label_shape = label_array.shape
             label_array = self.__rotate(label_array)
             label_array = self.__pad(label_array, self.opt.padding_size)
-            label_array = self.__random_crop(label_array)
+            label_array = self.__random_crop(label_array, label_shape)
             
             label_tensor = torch.tensor(label_array, dtype=torch.float32)
             
@@ -130,9 +131,10 @@ class CustomDataset(Dataset):
                 target_array = (IMG_B0-(UpIB+ LoIB)/2)/((UpIB - LoIB)/2)
             
             #--------------------------------------
+            target_shape = target_array.shape
             target_array = self.__rotate(target_array)
             target_array = self.__pad(target_array, self.opt.padding_size)
-            target_array = self.__random_crop(target_array)
+            target_array = self.__random_crop(target_array, target_shape)
             
             target_tensor = torch.tensor(target_array, dtype=torch.float32)
             
@@ -187,12 +189,12 @@ class CustomDataset(Dataset):
 #------------------------------------------------------------------------------
 # [2] Adjust or Measure the Input and Target data sets
                    
-    def __random_crop(self, x):
+    def __random_crop(self, x, array_shape):
         x = np.array(x)
         if len(x.shape) == 3:
-            x = x[:, self.offset_x: self.offset_x + self.opt.data_size, self.offset_y: self.offset_y + self.opt.data_size]
+            x = x[:, self.offset_x: self.offset_x + array_shape[1], self.offset_y: self.offset_y +array_shape[2]]
         else:
-            x = x[self.offset_x: self.offset_x + self.opt.data_size, self.offset_y: self.offset_y + self.opt.data_size]
+            x = x[self.offset_x: self.offset_x + array_shape[0], self.offset_y: self.offset_y + array_shape[1]]
         return x
 
     @staticmethod
