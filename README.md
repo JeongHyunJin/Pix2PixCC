@@ -188,7 +188,7 @@ Ex 2)
 <br/>
 
 
-Network architectures and Hyperparameters
+Network Architectures and Hyperparameters
 ------------
 
 You can run this code by changing the hyperparameters of *pix2pixCC*.
