@@ -1,7 +1,7 @@
 # *Pix2PixCC*
 
 The *Pix2PixCC* is an improved deep learning model to use scientific datasets than previous approaches (*Pix2Pix* and *Pix2PixHD*).
-It uses update loss functions: those of *Pix2PixHD* model and correlation coefficient (CC) values between the real and generated data.
+It uses updated loss functions: those of *Pix2PixHD* model and correlation coefficient (CC) values between the real and generated data.
 The model consists of three major components: Generator, Discriminator, and Inspector.
 The Generator and Discriminator are networks which get an update at every step with loss functions, and the Inspector is a module that guides the Generator to be well trained computing the CC values.
 The Generator tries to generate realistic output from input, and the Discriminator tries to distinguish the more realistic pair between a real pair and a generated pair.
