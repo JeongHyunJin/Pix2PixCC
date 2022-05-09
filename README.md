@@ -281,4 +281,4 @@ If you use this code in your work, please consider citing our paper.
 
 * Jeong et al. (2022)
 
-      TBD
+      TBD - Submitted to the ApJ Supplements (Apr 2022)
