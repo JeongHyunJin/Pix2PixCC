@@ -12,7 +12,7 @@ They are iterated until the assigned iteration, which is a sufficient number ass
      
 <br/>
 
-<img src="https://user-images.githubusercontent.com/68056295/167341738-f19ca1f5-6afb-4a82-9e90-4cbf264bfe97.png" width="100%" height="100%"></center>
+<img src="https://user-images.githubusercontent.com/68056295/167341738-f19ca1f5-6afb-4a82-9e90-4cbf264bfe97.png" width="80%" height="80%"></center>
 
 <br/>
 
