@@ -29,7 +29,7 @@ This code has been tested on Ubuntu 18.04 with one or two Nvidia GeForce GTX Tit
 <br/>
 
 
-## Environments
+## Prerequisites
 
 * Linux or macOS
 * Python 3
