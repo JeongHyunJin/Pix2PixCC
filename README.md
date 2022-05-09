@@ -1,4 +1,4 @@
-# *Pix2PixCC*
+# *Pix2PixCC model*
 
 The *Pix2PixCC* is an improved deep learning model to use scientific datasets than previous approaches (*Pix2Pix* and *Pix2PixHD*).
 It uses updated loss functions: those of *Pix2PixHD* model and correlation coefficient (CC) values between the real and generated data.
@@ -12,7 +12,7 @@ They are iterated until the assigned iteration, which is a sufficient number ass
      
 <br/>
 
-<img src="https://user-images.githubusercontent.com/68056295/167341738-f19ca1f5-6afb-4a82-9e90-4cbf264bfe97.png" width="80%" height="80%"></center>
+<img src="https://user-images.githubusercontent.com/68056295/167342427-7ce90f29-111f-4f0d-a7bb-b1c9493947ce.png" width="80%" height="80%"></center>
 
 <br/>
 
