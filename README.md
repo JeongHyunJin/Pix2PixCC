@@ -12,6 +12,8 @@ They are iterated until the assigned iteration, which is a sufficient number ass
      
 <br/>
 
+* Flowchart and structures of the Pix2PixCC
+
 <img src="https://user-images.githubusercontent.com/68056295/167344857-f633289c-9fd4-4f51-9aef-198b9dfba740.png" width="90%" height="90%"></center>
 <br/>
 <br/>
