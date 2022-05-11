@@ -282,7 +282,8 @@ When the GPU memory is not enough, you can try reducing the number of channels i
 <br/>
 
 
-## Citation
+Citation
+===============
 
 If you use this code in your work, please consider citing our paper ([arXiv preprint](https://arxiv.org/abs/2204.12068)).
 
