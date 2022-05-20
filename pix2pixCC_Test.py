@@ -1,5 +1,5 @@
 """
-Test code for the Pix2PixHD Model
+Test code for the Pix2PixCC Model
 @author: Hyun-Jin Jeong (https://jeonghyunjin.com, jeong_hj@khu.ac.kr)
 Reference:
 1) https://github.com/JeongHyunJin/Pix2PixCC
