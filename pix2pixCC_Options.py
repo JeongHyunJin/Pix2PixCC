@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Options of the Pix2PixHD Model
+Options of the Pix2PixCC Model
 @author: Hyun-Jin Jeong (https://jeonghyunjin.com, jeong_hj@khu.ac.kr)
 Reference:
 1) https://github.com/JeongHyunJin/Pix2PixCC
