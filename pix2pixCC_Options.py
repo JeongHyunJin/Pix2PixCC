@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Options for the pix2pixCC model
-
+Options of the Pix2PixHD Model
+@author: Hyun-Jin Jeong (https://jeonghyunjin.com, jeong_hj@khu.ac.kr)
+Reference:
+1) https://github.com/JeongHyunJin/Pix2PixCC
+2) https://arxiv.org/pdf/2204.12068.pdf
 """
 
 #==============================================================================
