@@ -43,6 +43,7 @@ This code has been tested on Ubuntu 18.04 with one or two Nvidia GeForce GTX Tit
 
 * Flags: see *pix2pixCC_Options.py* for all the training and test flags.
 > Before running the model, you have to check or adjust the options for your input and target datasets.
+> (available data extensions: tif, tiff, png, jpg, jpeg, npy, fits, fts, and fit.)
 
      # data setting in BaseOption class
      --dataset_name 'pix2pixCC' (default)
