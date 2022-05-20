@@ -1,6 +1,9 @@
 """
-Utility programs of the pix2pixCC model
-
+Utility programs of the Pix2PixCC Model
+@author: Hyun-Jin Jeong (https://jeonghyunjin.com, jeong_hj@khu.ac.kr)
+Reference:
+1) https://github.com/JeongHyunJin/Pix2PixCC
+2) https://arxiv.org/pdf/2204.12068.pdf
 """
 
 #==============================================================================
