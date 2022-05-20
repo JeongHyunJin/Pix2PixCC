@@ -25,8 +25,8 @@ class BaseOption(object):
         # data setting
         
         self.parser.add_argument('--dataset_name', type=str, default='pix2pixCC', help='dataset directory name')
-        self.parser.add_argument('--data_format_input', type=str, default='tif', help="Input data extension. [tif, tiff, npy, fits, fts, fit]")
-        self.parser.add_argument('--data_format_target', type=str, default='tif', help="Target data extension. [tif, tiff, npy, fits, fts, fit]")
+        self.parser.add_argument('--data_format_input', type=str, default='tif', help="Input data extension. [tif, tiff, png, jpg, jpeg, npy, fits, fts, fit]")
+        self.parser.add_argument('--data_format_target', type=str, default='tif', help="Target data extension. [tif, tiff, png, jpg, jpeg, npy, fits, fts, fit]")
         
         self.parser.add_argument('--input_ch', type=int, default=1, help="The number of channels of input data")
         self.parser.add_argument('--target_ch', type=int, default=1, help="The number of channels of target data")
