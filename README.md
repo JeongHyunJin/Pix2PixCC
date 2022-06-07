@@ -58,10 +58,10 @@ This code has been tested on Ubuntu 18.04 with one or two Nvidia GeForce GTX Tit
      --logscale_input False (default)
      --logscale_target False (default)
 
-     --saturation_lower_limit_input -1 (default)
-     --saturation_upper_limit_input 1 (default)
-     --saturation_lower_limit_target -1 (default)
-     --saturation_upper_limit_target 1 (default)
+     --saturation_lower_limit_input 0 (default)
+     --saturation_upper_limit_input 255 (default)
+     --saturation_lower_limit_target 0 (default)
+     --saturation_upper_limit_target 255 (default)
      --saturation_clip_input False (default)
      --saturation_clip_target False (default)
       
