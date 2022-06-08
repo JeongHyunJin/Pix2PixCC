@@ -79,7 +79,9 @@ if __name__ == '__main__':
                         LoIB = opt.saturation_lower_limit_target
 
                         np_fake = fake.cpu().numpy().squeeze() *((UpIB - LoIB)/2) +(UpIB+ LoIB)/2
-
+                        if opt.saturation_clip_target == True:
+                            np_fake = np.clip(np_fake, LoIB, UpIB)
+                            
                          #--------------------------------------
                         if len(np_fake.shape) == 3:
                             np_fake = np_fake.transpose(1, 2 ,0)
@@ -89,7 +91,9 @@ if __name__ == '__main__':
                             np_fake = 10**(np_fake)
 
                         #--------------------------------------
-                        if opt.data_format_input in ["tif", "tiff"]:
+                        if opt.data_format_input in ["tif", "tiff", "png", "jpg", "jpeg"]:
+                            if opt.data_format_input in ["png", "jpg", "jpeg"]:
+                                np_fake = np.asarray(np_fake, np.uint8)
                             pil_image = Image.fromarray(np_fake)
                             pil_image.save(os.path.join(dir_image_save, name[0] + '_AI.fits'))
                         elif opt.data_format_input in ["npy"]:
@@ -123,7 +127,9 @@ if __name__ == '__main__':
                 LoIB = opt.saturation_lower_limit_target
                 
                 np_fake = fake.cpu().numpy().squeeze() *((UpIB - LoIB)/2) +(UpIB+ LoIB)/2
-                
+                if opt.saturation_clip_target == True:
+                    np_fake = np.clip(np_fake, LoIB, UpIB)
+                    
                 #--------------------------------------
                 if len(np_fake.shape) == 3:
                     np_fake = np_fake.transpose(1, 2 ,0)
@@ -136,7 +142,9 @@ if __name__ == '__main__':
                     np_fake = np_fake*np.float(opt.save_scale)
                 
                 #--------------------------------------
-                if opt.data_format_input in ["tif", "tiff"]:
+                if opt.data_format_input in ["tif", "tiff", "png", "jpg", "jpeg"]:
+                    if opt.data_format_input in ["png", "jpg", "jpeg"]:
+                        np_fake = np.asarray(np_fake, np.uint8)
                     pil_image = Image.fromarray(np_fake)
                     pil_image.save(os.path.join(dir_image_save, name[0] + '_AI.fits'))
                 elif opt.data_format_input in ["npy"]:
