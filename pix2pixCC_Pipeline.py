@@ -71,14 +71,6 @@ class CustomDataset(Dataset):
             #--------------------------------------
             if len(IMG_A0.shape) == 3:
                 IMG_A0 = IMG_A0.transpose(2, 0 ,1)
-
-            #--------------------------------------
-            if self.opt.logscale_input == True:
-                IMG_A0[np.isnan(IMG_A0)] = 0.1
-                IMG_A0[IMG_A0 == 0] = 0.1
-                IMG_A0 = np.log10(IMG_A0)
-            else:
-                IMG_A0[np.isnan(IMG_A0)] = 0
             
             #--------------------------------------
             UpIA = np.float(self.opt.saturation_upper_limit_input)
@@ -88,6 +80,14 @@ class CustomDataset(Dataset):
                 label_array = (np.clip(IMG_A0, LoIA, UpIA)-(UpIA+LoIA)/2)/((UpIA - LoIA)/2)
             else:
                 label_array = (IMG_A0-(UpIA+LoIA)/2)/((UpIA - LoIA)/2)
+
+            #--------------------------------------
+            if self.opt.logscale_input == True:
+                IMG_A0[np.isnan(IMG_A0)] = 0.1
+                IMG_A0[IMG_A0 == 0] = 0.1
+                IMG_A0 = np.log10(IMG_A0)
+            else:
+                IMG_A0[np.isnan(IMG_A0)] = 0
                 
             #--------------------------------------
             label_shape = label_array.shape
@@ -117,14 +117,6 @@ class CustomDataset(Dataset):
                 IMG_B0 = IMG_B0.transpose(2, 0 ,1)
             
             #--------------------------------------
-            if self.opt.logscale_target == True:
-                IMG_B0[np.isnan(IMG_B0)] = 0.1
-                IMG_B0[IMG_B0 == 0] = 0.1
-                IMG_B0 = np.log10(IMG_B0)
-            else:
-                IMG_B0[np.isnan(IMG_B0)] = 0
-            
-            #--------------------------------------
             IMG_B0[np.isnan(IMG_B0)] = 0
             UpIB = np.float(self.opt.saturation_upper_limit_target)
             LoIB = np.float(self.opt.saturation_lower_limit_target)
@@ -133,6 +125,14 @@ class CustomDataset(Dataset):
                 target_array = (np.clip(IMG_B0, LoIB, UpIB)-(UpIB+ LoIB)/2)/((UpIB - LoIB)/2)
             else:
                 target_array = (IMG_B0-(UpIB+ LoIB)/2)/((UpIB - LoIB)/2)
+            
+            #--------------------------------------
+            if self.opt.logscale_target == True:
+                IMG_B0[np.isnan(IMG_B0)] = 0.1
+                IMG_B0[IMG_B0 == 0] = 0.1
+                IMG_B0 = np.log10(IMG_B0)
+            else:
+                IMG_B0[np.isnan(IMG_B0)] = 0
             
             #--------------------------------------
             target_shape = target_array.shape
@@ -164,20 +164,20 @@ class CustomDataset(Dataset):
                 IMG_A0 = IMG_A0.transpose(2, 0 ,1)
 
             #--------------------------------------
-            if self.opt.logscale_input == True:
-                IMG_A0[np.isnan(IMG_A0)] = 0.1
-                IMG_A0[IMG_A0 == 0] = 0.1
-                IMG_A0 = np.log10(IMG_A0)
-            else:
-                IMG_A0[np.isnan(IMG_A0)] = 0
-            
-            #--------------------------------------
             UpIA = np.float(self.opt.saturation_upper_limit_input)
             LoIA = np.float(self.opt.saturation_lower_limit_input)
             
             label_array = (np.clip(IMG_A0, LoIA, UpIA)-(UpIA+LoIA)/2)/((UpIA - LoIA)/2)
 
             label_tensor = torch.tensor(label_array, dtype=torch.float32)
+            
+            #--------------------------------------
+            if self.opt.logscale_input == True:
+                IMG_A0[np.isnan(IMG_A0)] = 0.1
+                IMG_A0[IMG_A0 == 0] = 0.1
+                IMG_A0 = np.log10(IMG_A0)
+            else:
+                IMG_A0[np.isnan(IMG_A0)] = 0
             
             #--------------------------------------
             if len(label_tensor.shape) == 2:
