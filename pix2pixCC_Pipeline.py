@@ -67,7 +67,6 @@ class CustomDataset(Dataset):
             else:
                 NotImplementedError("Please check data_format_input option. It has to be tif or npy or fits.")
             
-             
             #--------------------------------------
             if len(IMG_A0.shape) == 3:
                 IMG_A0 = IMG_A0.transpose(2, 0 ,1)
