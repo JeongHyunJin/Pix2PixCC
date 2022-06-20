@@ -166,9 +166,10 @@ class CustomDataset(Dataset):
             UpIA = np.float(self.opt.saturation_upper_limit_input)
             LoIA = np.float(self.opt.saturation_lower_limit_input)
             
-            label_array = (np.clip(IMG_A0, LoIA, UpIA)-(UpIA+LoIA)/2)/((UpIA - LoIA)/2)
-
-            label_tensor = torch.tensor(label_array, dtype=torch.float32)
+            if self.opt.saturation_clip_input == True:
+                label_array = (np.clip(IMG_A0, LoIA, UpIA)-(UpIA+LoIA)/2)/((UpIA - LoIA)/2)
+            else:
+                label_array = (IMG_A0-(UpIA+LoIA)/2)/((UpIA - LoIA)/2)
             
             #--------------------------------------
             if self.opt.logscale_input == True:
@@ -178,6 +179,8 @@ class CustomDataset(Dataset):
             else:
                 label_array[np.isnan(label_array)] = 0
             
+            label_tensor = torch.tensor(label_array, dtype=torch.float32)
+
             #--------------------------------------
             if len(label_tensor.shape) == 2:
                 label_tensor = label_tensor.unsqueeze(dim=0)
