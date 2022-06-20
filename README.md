@@ -294,3 +294,8 @@ If you use this code in your work, please consider citing our paper ([arXiv prep
 
 <br/>
 
+[![DOI](https://zenodo.org/badge/394138517.svg)](https://zenodo.org/badge/latestdoi/394138517)
+
+<br/>
+
+
