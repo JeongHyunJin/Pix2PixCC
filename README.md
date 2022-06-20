@@ -292,9 +292,7 @@ If you use this code in your work, please consider citing our paper ([arXiv prep
 
       TBD - Submitted to the ApJ Supplements (Apr 2022)
 
-<br/>
-
-[![DOI](https://zenodo.org/badge/394138517.svg)](https://zenodo.org/badge/latestdoi/394138517)
+We released this repository and published it on Zenodo as [![DOI](https://zenodo.org/badge/394138517.svg)](https://zenodo.org/badge/latestdoi/394138517)
 
 <br/>
 
