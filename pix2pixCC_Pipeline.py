@@ -82,11 +82,11 @@ class CustomDataset(Dataset):
 
             #--------------------------------------
             if self.opt.logscale_input == True:
-                IMG_A0[np.isnan(IMG_A0)] = 0.1
-                IMG_A0[IMG_A0 == 0] = 0.1
-                IMG_A0 = np.log10(IMG_A0)
+                label_array[np.isnan(label_array)] = 0.1
+                label_array[label_array == 0] = 0.1
+                label_array = np.log10(label_array)
             else:
-                IMG_A0[np.isnan(IMG_A0)] = 0
+                label_array[np.isnan(label_array)] = 0
                 
             #--------------------------------------
             label_shape = label_array.shape
@@ -127,11 +127,11 @@ class CustomDataset(Dataset):
             
             #--------------------------------------
             if self.opt.logscale_target == True:
-                IMG_B0[np.isnan(IMG_B0)] = 0.1
-                IMG_B0[IMG_B0 == 0] = 0.1
-                IMG_B0 = np.log10(IMG_B0)
+                target_array[np.isnan(target_array)] = 0.1
+                target_array[target_array == 0] = 0.1
+                target_array = np.log10(target_array)
             else:
-                IMG_B0[np.isnan(IMG_B0)] = 0
+                target_array[np.isnan(target_array)] = 0
             
             #--------------------------------------
             target_shape = target_array.shape
@@ -172,11 +172,11 @@ class CustomDataset(Dataset):
             
             #--------------------------------------
             if self.opt.logscale_input == True:
-                IMG_A0[np.isnan(IMG_A0)] = 0.1
-                IMG_A0[IMG_A0 == 0] = 0.1
-                IMG_A0 = np.log10(IMG_A0)
+                label_array[np.isnan(label_array)] = 0.1
+                label_array[label_array == 0] = 0.1
+                label_array = np.log10(label_array)
             else:
-                IMG_A0[np.isnan(IMG_A0)] = 0
+                label_array[np.isnan(label_array)] = 0
             
             #--------------------------------------
             if len(label_tensor.shape) == 2:
