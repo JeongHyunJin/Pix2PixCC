@@ -8,37 +8,34 @@ Reference:
 
 #==============================================================================
 
+from pix2pixCC_Options import TrainOption
+opt = TrainOption().parse()
+
+import os
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ['CUDA_VISIBLE_DEVICES'] = str(opt.gpu_ids)
+
+import datetime  
+import numpy as np
+from tqdm import tqdm
+
+import torch
+from torch.utils.data import DataLoader
+
+from pix2pixCC_Networks import Discriminator, Generator, Loss
+from pix2pixCC_Pipeline import CustomDataset
+from pix2pixCC_Utils import Manager, weights_init
+
+
 if __name__ == '__main__':
     
     #--------------------------------------------------------------------------
-    import os
-    import datetime  
-    import numpy as np
-    from tqdm import tqdm
-     
-    import torch
-    from torch.utils.data import DataLoader
-    
-    from pix2pixCC_Networks import Discriminator, Generator, Loss
-    from pix2pixCC_Options import TrainOption
-    from pix2pixCC_Pipeline import CustomDataset
-    from pix2pixCC_Utils import Manager, weights_init
-    
-    
-    #--------------------------------------------------------------------------
-    
     start_time = datetime.datetime.now()
 
     #--------------------------------------------------------------------------
     # [1] Initial Conditions Setup
     
     torch.backends.cudnn.benchmark = False
-
-    opt = TrainOption().parse()
-
-    os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-    os.environ['CUDA_VISIBLE_DEVICES'] = str(opt.gpu_ids)
-
     device = torch.device('cuda:0')
     dtype = torch.float16 if opt.data_type == 16 else torch.float32
     
