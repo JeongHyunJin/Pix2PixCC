@@ -9,32 +9,31 @@ Reference:
 #==============================================================================
 # [1] Initial Conditions Setup
 
+from pix2pixCC_Options import TestOption
+opt = TestOption().parse()
+
+import os
+os.environ['CUDA_VISIBLE_DEVICES'] = str(opt.gpu_ids)
+
+import numpy as np
+from glob import glob
+from tqdm import tqdm
+
+from PIL import Image
+from astropy.io import fits
+
+import torch
+from torch.utils.data import DataLoader
+
+from pix2pixCC_Pipeline import CustomDataset
+from pix2pixCC_Networks import Generator
+from pix2pixCC_Utils import Manager
+
 if __name__ == '__main__':
-    
-    #--------------------------------------------------------------------------
-    import os
-    import numpy as np
-    from glob import glob
-    from tqdm import tqdm
-
-    from PIL import Image
-    from astropy.io import fits
-    
-    import torch
-    from torch.utils.data import DataLoader
-    
-    from pix2pixCC_Options import TestOption
-    from pix2pixCC_Pipeline import CustomDataset
-    from pix2pixCC_Networks import Generator
-    from pix2pixCC_Utils import Manager
-
-
+   
     #--------------------------------------------------------------------------
     
     torch.backends.cudnn.benchmark = True
-    
-    opt = TestOption().parse()
-    os.environ['CUDA_VISIBLE_DEVICES'] = str(opt.gpu_ids)
     device = torch.device('cuda:0')
     
     
