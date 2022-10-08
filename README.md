@@ -286,12 +286,21 @@ When the GPU memory is not enough, you can try reducing the number of channels i
 Citation
 ===============
 
-If you use this code in your work, please consider citing our paper ([arXiv preprint](https://arxiv.org/abs/2204.12068)).
+If you use this code in your work, please consider citing our [paper](https://iopscience.iop.org/article/10.3847/1538-4365/ac8d66) ([arXiv preprint](https://arxiv.org/abs/2204.12068)).
 
 * Jeong et al. (2022)
 
-      TBD - Submitted to the ApJ Supplements (Apr 2022)
-
+      @article{jeong2022improved,
+      title={Improved AI-generated Solar Farside Magnetograms by STEREO and SDO Data Sets and Their Release},
+      author={Jeong, Hyun-Jin and Moon, Yong-Jae and Park, Eunsu and Lee, Harim and Baek, Ji-Hye},
+      journal={The Astrophysical Journal Supplement Series},
+      volume={262},
+      number={2},
+      pages={50},
+      year={2022},
+      publisher={IOP Publishing}
+      }
+      
 We released this repository and published it on Zenodo as [![DOI](https://zenodo.org/badge/394138517.svg)](https://zenodo.org/badge/latestdoi/394138517)
 
 <br/>
