@@ -282,18 +282,18 @@ class Loss(object):
     
     def __Inspector(self, target, fake):
                 
-        rd = target - torch.nanmean(target)
-        fd = fake - torch.nanmean(fake)
+        rd = target - torch.mean(target)
+        fd = fake - torch.mean(fake)
         
-        r_num = torch.nansum(rd * fd)
-        r_den = torch.sqrt(torch.nansum(rd ** 2)) * torch.sqrt(torch.nansum(fd ** 2))
+        r_num = torch.sum(rd * fd)
+        r_den = torch.sqrt(torch.sum(rd ** 2)) * torch.sqrt(torch.sum(fd ** 2))
         PCC_val = r_num/(r_den + self.opt.eps)
         
         #----------------------------------------------------------------------
         if self.opt.ccc == True:
             numerator = 2*PCC_val*torch.std(target)*torch.std(fake)
             denominator = (torch.var(target) + torch.var(fake)
-                           + (torch.nanmean(target) - torch.nanmean(fake))**2)
+                           + (torch.mean(target) - torch.mean(fake))**2)
             
             CCC_val = numerator/(denominator + self.opt.eps)
             loss_CC = (1.0 - CCC_val)
