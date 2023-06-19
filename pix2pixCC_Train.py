@@ -40,7 +40,7 @@ if __name__ == '__main__':
     dtype = torch.float16 if opt.data_type == 16 else torch.float32
     
     if opt.val_during_train:
-        from options import TestOption
+        from pix2pixCC_Options import TestOption
         test_opt = TestOption().parse()
         save_freq = opt.save_freq
 
