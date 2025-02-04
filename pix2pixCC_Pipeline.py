@@ -59,11 +59,11 @@ class CustomDataset(Dataset):
             
 # [ Train Input ] =============================================================
             if self.input_format in ["tif", "tiff", "png", "jpg", "jpeg"]:
-                IMG_A0 = np.array(Image.open(self.label_path_list[index]), dtype = np.float32)
+                IMG_A0 = np.array(Image.open(self.label_path_list[index]), dtype = float)
             elif self.input_format in ["npy"]:
                 IMG_A0 = np.load(self.label_path_list[index], allow_pickle=True)
             elif self.input_format in ["fits", "fts", "fit"]:
-                IMG_A0 = np.array(fits.open(self.label_path_list[index])[0].data, dtype = np.float32)
+                IMG_A0 = np.array(fits.open(self.label_path_list[index])[0].data, dtype = float)
             else:
                 NotImplementedError("Please check data_format_input option. It has to be tif or npy or fits.")
             
@@ -72,8 +72,8 @@ class CustomDataset(Dataset):
                 IMG_A0 = IMG_A0.transpose(2, 0 ,1)
             
             #--------------------------------------
-            UpIA = np.float(self.opt.saturation_upper_limit_input)
-            LoIA = np.float(self.opt.saturation_lower_limit_input)
+            UpIA = float(self.opt.saturation_upper_limit_input)
+            LoIA = float(self.opt.saturation_lower_limit_input)
             
             if self.opt.saturation_clip_input == True:
                 label_array = (np.clip(IMG_A0, LoIA, UpIA)-(UpIA+LoIA)/2)/((UpIA - LoIA)/2)
@@ -103,11 +103,11 @@ class CustomDataset(Dataset):
                 
 # [ Train Target ] ============================================================
             if self.input_format in ["tif", "tiff", "png", "jpg", "jpeg"]:
-                IMG_B0 = np.array(Image.open(self.target_path_list[index]), dtype = np.float32)
+                IMG_B0 = np.array(Image.open(self.target_path_list[index]), dtype = float)
             elif self.target_format in ["npy"]:
                 IMG_B0 = np.load(self.target_path_list[index], allow_pickle=True)
             elif self.target_format in ["fits", "fts", "fit"]:
-                IMG_B0 = np.array(fits.open(self.target_path_list[index])[0].data, dtype = np.float32)
+                IMG_B0 = np.array(fits.open(self.target_path_list[index])[0].data, dtype = float)
             else:
                 NotImplementedError("Please check data_format_target option. It has to be tif or npy or fits.")
             
@@ -117,8 +117,8 @@ class CustomDataset(Dataset):
             
             #--------------------------------------
             IMG_B0[np.isnan(IMG_B0)] = 0
-            UpIB = np.float(self.opt.saturation_upper_limit_target)
-            LoIB = np.float(self.opt.saturation_lower_limit_target)
+            UpIB = float(self.opt.saturation_upper_limit_target)
+            LoIB = float(self.opt.saturation_lower_limit_target)
             
             if self.opt.saturation_clip_target == True:
                 target_array = (np.clip(IMG_B0, LoIB, UpIB)-(UpIB+ LoIB)/2)/((UpIB - LoIB)/2)
@@ -150,11 +150,11 @@ class CustomDataset(Dataset):
         else:
 # [ Test Input ] ==============================================================
             if self.input_format in ["tif", "tiff", "png", "jpg", "jpeg"]:
-                IMG_A0 = np.array(Image.open(self.label_path_list[index]), dtype = np.float32)       
+                IMG_A0 = np.array(Image.open(self.label_path_list[index]), dtype = float)       
             elif self.input_format in ["npy"]:
                 IMG_A0 = np.load(self.label_path_list[index], allow_pickle=True)
             elif self.input_format in ["fits", "fts", "fit"]:                    
-                IMG_A0 = np.array(fits.open(self.label_path_list[index])[0].data, dtype = np.float32)
+                IMG_A0 = np.array(fits.open(self.label_path_list[index])[0].data, dtype = float)
             else:
                 NotImplementedError("Please check data_format_input option. It has to be tif or npy or fits.")
             
@@ -163,8 +163,8 @@ class CustomDataset(Dataset):
                 IMG_A0 = IMG_A0.transpose(2, 0 ,1)
 
             #--------------------------------------
-            UpIA = np.float(self.opt.saturation_upper_limit_input)
-            LoIA = np.float(self.opt.saturation_lower_limit_input)
+            UpIA = float(self.opt.saturation_upper_limit_input)
+            LoIA = float(self.opt.saturation_lower_limit_input)
             
             if self.opt.saturation_clip_input == True:
                 label_array = (np.clip(IMG_A0, LoIA, UpIA)-(UpIA+LoIA)/2)/((UpIA - LoIA)/2)
@@ -217,7 +217,7 @@ class CustomDataset(Dataset):
 
     @staticmethod
     def __to_numpy(x):
-        return np.array(x, dtype=np.float32)
+        return np.array(x, dtype=float)
 
     def __len__(self):
         return len(self.label_path_list)
