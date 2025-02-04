@@ -151,8 +151,8 @@ if __name__ == '__main__':
                     np_real = target.cpu().numpy().squeeze()
                     
                     if opt.display_scale != 1:
-                        sav_fake = np.clip(np_fake*np.float(opt.display_scale), -1, 1)
-                        sav_real = np.clip(np_real*np.float(opt.display_scale), -1, 1)
+                        sav_fake = np.clip(np_fake*float(opt.display_scale), -1, 1)
+                        sav_real = np.clip(np_real*float(opt.display_scale), -1, 1)
                     else:
                         sav_fake = np_fake
                         sav_real = np_real
