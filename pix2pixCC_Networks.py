@@ -98,7 +98,7 @@ class PatchDiscriminator(nn.Module):
         
         #----------------------------------------------------------------------
         if opt.ch_balance > 0:
-            ch_ratio = np.float(opt.input_ch)/np.float(opt.target_ch)
+            ch_ratio = float(opt.input_ch)/float(opt.target_ch)
             ch_ratio *= opt.ch_balance
             if ch_ratio > 1:
                 input_channel = opt.input_ch + opt.target_ch*np.int(ch_ratio)                            
@@ -194,7 +194,7 @@ class Loss(object):
             fake_pair = torch.cat((input, fake.detach()), dim=1)
             
             ch_plus = 0
-            ch_ratio = np.float(self.opt.input_ch)/np.float(self.opt.target_ch)
+            ch_ratio = float(self.opt.input_ch)/float(self.opt.target_ch)
             ch_ratio *= self.opt.ch_balance
             if ch_ratio > 1:
                 for dr in range(np.int(ch_ratio)-1):
