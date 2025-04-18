@@ -101,9 +101,9 @@ class PatchDiscriminator(nn.Module):
             ch_ratio = float(opt.input_ch)/float(opt.target_ch)
             ch_ratio *= opt.ch_balance
             if ch_ratio > 1:
-                input_channel = opt.input_ch + opt.target_ch*np.int(ch_ratio)                            
+                input_channel = opt.input_ch + opt.target_ch*int(ch_ratio)                            
             elif ch_ratio < 1:
-                input_channel = opt.input_ch*np.int(1/ch_ratio) + opt.target_ch
+                input_channel = opt.input_ch*int(1/ch_ratio) + opt.target_ch
             else:
                 input_channel = opt.input_ch + opt.target_ch
         else:
@@ -197,13 +197,13 @@ class Loss(object):
             ch_ratio = float(self.opt.input_ch)/float(self.opt.target_ch)
             ch_ratio *= self.opt.ch_balance
             if ch_ratio > 1:
-                for dr in range(np.int(ch_ratio)-1):
+                for dr in range(int(ch_ratio)-1):
                     real_pair = torch.cat((real_pair, target), dim=1)
                     fake_pair = torch.cat((fake_pair, fake.detach()), dim=1)
                     ch_plus += self.opt.target_ch                         
             
             elif ch_ratio < 1:                
-                for _ in range(np.int(1/ch_ratio)-1):
+                for _ in range(int(1/ch_ratio)-1):
                     real_pair = torch.cat((input, real_pair), dim=1)
                     fake_pair = torch.cat((input, fake_pair), dim=1)
                     ch_plus += self.opt.input_ch
@@ -236,10 +236,10 @@ class Loss(object):
             fake_pair = torch.cat((input, fake), dim=1)
             
             if ch_ratio > 1:
-                for _ in range(np.int(ch_ratio)-1):
+                for _ in range(int(ch_ratio)-1):
                     fake_pair = torch.cat((fake_pair, fake), dim=1)
             elif ch_ratio < 1:
-                for _ in range(np.int(1/ch_ratio)-1):
+                for _ in range(int(1/ch_ratio)-1):
                     fake_pair = torch.cat((input, fake_pair), dim=1)
             else:
                 pass
