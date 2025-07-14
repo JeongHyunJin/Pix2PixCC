@@ -85,14 +85,9 @@ class Manager(object):
     #--------------------------------------------------------------------------
     def adjust_dynamic_range(self, data, drange_in, drange_out):
         if drange_in != drange_out:
-            if self.dtype == 32:
-                scale = (np.float32(drange_out[1]) - np.float32(drange_out[0])) / (
-                            np.float32(drange_in[1]) - np.float32(drange_in[0]))
-                bias = (np.float32(drange_out[0]) - np.float32(drange_in[0]) * scale)
-            elif self.dtype == 16:
-                scale = (np.float16(drange_out[1]) - np.float16(drange_out[0])) / (
-                            np.float16(drange_in[1]) - np.float16(drange_in[0]))
-                bias = (np.float16(drange_out[0]) - np.float16(drange_in[0]) * scale)
+            scale = (float(drange_out[1]) - float(drange_out[0])) / (
+                            float(drange_in[1]) - float(drange_in[0]))
+            bias = (float(drange_out[0]) - float(drange_in[0]) * scale)
             data = data * scale + bias
         return data
 
